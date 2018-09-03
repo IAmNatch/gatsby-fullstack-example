@@ -1,3 +1,7 @@
-* {
-  font-family: Roboto;
+@font-face {
+  font-family: 'roboto', 'Georgia';
+}
+
+body {
+  font-family: 'roboto', 'Georgia';
 }
