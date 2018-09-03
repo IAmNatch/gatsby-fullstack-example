@@ -4,6 +4,7 @@ import styled from 'styled-components';
 // Use text for content
 import { Text } from '../Text/Text.js';
 import { colors } from '../color-palette.js';
+import Img from 'gatsby-image';
 
 const ButtonBase = styled.button`
   transition: 0.5s ease;
@@ -29,17 +30,19 @@ const ButtonBase = styled.button`
   }
 `;
 
-const Icon = styled.img`
+const Icon = styled(Img)`
   margin-left: 1em;
 `;
 
 export const Button = props => {
+  console.log('all props', props);
+  console.log('icon', props.icon);
   return (
     <ButtonBase onclick="" {...props}>
       <Text color="white" size={props.small ? 'p' : 'small'}>
         {props.children}
       </Text>
-      {props.icon ? [<Icon src={props.icon} />] : ' '}
+      {props.icon ? [<Icon resolutions={props.icon} />] : ' '}
     </ButtonBase>
   );
 };
