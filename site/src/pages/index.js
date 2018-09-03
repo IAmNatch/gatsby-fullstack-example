@@ -141,9 +141,9 @@ const IndexPage = () => (
           align={'center'}
           justify={'center'}
         >
-        <LazyLoad once height={100}>
-          <Icon src={'assets/brush.svg'} width={'3rem'} />
-        </ LazyLoad>
+          <LazyLoad once height={100}>
+            <Icon src={'assets/brush.svg'} width={'3rem'} />
+          </LazyLoad>
           <Text color={colors.purpleDark} margin={'1rem'} size="small" block>
             Core Value
           </Text>
@@ -157,9 +157,9 @@ const IndexPage = () => (
         >
           <Box flex justify={'center'} width="60%" mobileWidth={'100%'}>
             <Box flex align={'flex-end'} margin={'0 0 1rem 0'}>
-            <LazyLoad height={500} once>
-              <Icon width={'100%'} src="/assets/vectors/laptop.svg" />
-            <LazyLoad>
+              <LazyLoad height={500} once>
+                <Icon width={'100%'} src="/assets/vectors/laptop.svg" />
+              </LazyLoad>
             </Box>
           </Box>
           <Box
@@ -194,9 +194,9 @@ const IndexPage = () => (
           align={'center'}
           justify={'center'}
         >
-        <LazyLoad height={100} once>
-          <Icon src={'assets/ruler.svg'} width={'3rem'} />
-        </ LazyLoad>
+          <LazyLoad height={100} once>
+            <Icon src={'assets/ruler.svg'} width={'3rem'} />
+          </LazyLoad>
           <Text
             color={colors.purpleDark}
             margin={'1rem'}
