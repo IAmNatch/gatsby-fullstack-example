@@ -16,7 +16,6 @@ import {
   Icon,
 } from '../components';
 import { Offer } from '../components/ProjectSpec/Offers';
-import background from '../assets/background.svg';
 import icon from '../components/assets/thumbs_up.svg';
 import { seedCards, seedOffers } from '../seed_data';
 
@@ -94,7 +93,7 @@ const IndexPage = () => (
         column={`1/5`}
         row={'1/3'}
         size={'cover'}
-        background={`url(${background})`}
+        background={`url(/background.svg)`}
       />
       <Nav
         items={[
