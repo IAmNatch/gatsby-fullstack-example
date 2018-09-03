@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
+import LazyLoad from 'react-lazyload';
 
 // Components
 import {
@@ -75,6 +76,9 @@ const ListItem = props => (
 let cards = seedCards.map((item, index) => {
   return (
     <Card key={`mainCards${index}`} icon={item.icon} shadow>
+      <LazyLoad height={100} once>
+        <Card.Icon src={item.icon} />
+      </LazyLoad>
       <Card.Title>{item.title}</Card.Title>
       <Card.Subtitle>{item.subtitle}</Card.Subtitle>
     </Card>
