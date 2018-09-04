@@ -9,7 +9,7 @@ collections:
     files:
         - label: "Home Page"
           name: "home"
-          file: 'src/pages/pageData/home.md'
+          file: 'site/src/pages/pageData/home.md'
           fields:
               - {label: "Page Title", name: "title", widget: "string"}
               - label: "Jumbotron"
@@ -73,6 +73,6 @@ collections:
             - label: Nav Items
               name: nav-items
               widget: "list"
-              feilds:
+              fields:
                 - {label: Title, name: title, widget: string}
                 - {label: Path, name: path, widget: string}
