@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   branch: master # Branch to update (optional; defaults to master)
-display_url: https://gatsby-iamnatch.netlify.com
+display_url: http://localhost:8000
 media_folder: static/uploads
 collections:
   - name: "pages" # Used in routes, e.g., /admin/collections/blog
@@ -11,5 +11,25 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Jumbo Header", name: "jumbo-header", widget: "string"}
+      - {label: "Jumbo Subheader", name: "jumbo-subheader", widget: "string"}
+      - label: Services
+        name: services
+        widget: 'list'
+        fields:
+          - {label: "Card Title", name: "card-title", widget: 'string'}
+          - {label: "Card Subtitle", name: "card-subtitle", widget: 'string'}
+          - {label: "Icon", name: "icon", widget: 'image'}
+  - name: "nav-links" # Used in routes, e.g., /admin/collections/blog
+    label: 'Nav Links'
+    folder: "site/src/pages/navData"
+    create: true
+    slug: '{{slug}-navLinks}'
+    fields:
+      - {label: "Title", name: 'title', widget: 'string'}
+      - label: Nav Items
+        name: nav-items
+        widget: "list"
+        feilds:
+          - {label: Title, name: title, widget: string}
+          - {label: Path, name: path, widget: string}

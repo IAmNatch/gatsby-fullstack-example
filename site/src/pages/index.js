@@ -87,7 +87,7 @@ let cards = seedCards.map((item, index) => {
 let rowOne = cards.slice(0, 3);
 let rowTwo = cards.slice(3, 5);
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <div>
     <Wrapper
       columns={`10vw 40vw 40vw 10vw`}
@@ -100,6 +100,7 @@ const IndexPage = () => (
         background={`url(/background.svg)`}
       />
       <Nav
+        title={data.site.siteMetadata.title}
         items={[
           { name: 'Home', url: '/' },
           { name: 'Solutions', url: '/anything' },
@@ -254,3 +255,13 @@ const IndexPage = () => (
 );
 
 export default IndexPage;
+
+export const query = graphql`
+  query TitleQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

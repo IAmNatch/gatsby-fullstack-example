@@ -79,7 +79,7 @@ export const Nav = props => {
       <NavLeft>
         <Logo src={logo} />
         <LogoText color={colors.white} size="medium">
-          Magicare
+          {props.title}
         </LogoText>
       </NavLeft>
       <NavRight>
