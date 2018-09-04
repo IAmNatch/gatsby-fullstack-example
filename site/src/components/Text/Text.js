@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const textSizes = {
   large: `
@@ -29,10 +29,11 @@ const textSizes = {
   p: `
     font-size: 1rem;
   `,
-}
+};
 
+// Roboto then helvetica so it falls back to helvetica during loading.
 export const Text = styled.p`
-  font-family: Roboto;
+  font-family: 'Roboto', 'Helvetica';
   font-style: normal;
   color: ${props => props.color || 'black'};
   margin: ${props => props.margin || '0'};
@@ -48,4 +49,4 @@ export const Text = styled.p`
   ${props => (props.TAlign ? `text-align: ${props.TAlign}` : '')};
   ${props =>
     props.letterSpaceing ? `letter-spacing: ${props.letterSpaceing}` : ''};
-`
+`;

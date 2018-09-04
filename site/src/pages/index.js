@@ -76,7 +76,7 @@ const ListItem = props => (
 let cards = seedCards.map((item, index) => {
   return (
     <Card key={`mainCards${index}`} icon={item.icon} shadow>
-      <LazyLoad height={100} once>
+      <LazyLoad height={200} once>
         <Card.Icon src={item.icon} />
       </LazyLoad>
       <Card.Title>{item.title}</Card.Title>

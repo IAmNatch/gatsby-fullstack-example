@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 
 import './index.css';
 import 'normalize.css';
+// import 'roboto-fontface';
 
 const Layout = ({ children, data }) => (
   <div>
@@ -36,14 +37,8 @@ const Layout = ({ children, data }) => (
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
-      <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-<script>
- WebFont.load({
-    google: {
-      families: ['Roboto']
-    }
-  });
-</script>
+      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+      <script src="/netlifyIdentity.js" />
     </Helmet>
     <div>{children()}</div>
   </div>

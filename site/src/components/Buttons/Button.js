@@ -34,8 +34,6 @@ const Icon = styled.img`
 `;
 
 export const Button = props => {
-  console.log('all props', props);
-  console.log('icon', props.icon);
   return (
     <ButtonBase onclick="" {...props}>
       <Text color="white" size={props.small ? 'p' : 'small'}>
