@@ -100,6 +100,7 @@ const IndexPage = ({ data }) => {
     footer,
   } = pageData.frontmatter;
   console.log(data);
+
   return (
     <div>
       <Wrapper
@@ -288,8 +289,8 @@ export const query = graphql`
       id
       frontmatter {
         nav_items {
-          title
-          path
+          name
+          url
         }
       }
     }

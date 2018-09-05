@@ -1,11 +1,10 @@
 ---
 title: NavItems
 nav-items:
-  - path: '#'
-    title: One Thing Cool
-  - path: '#'
-    title: Two Thing
-  - path: '#'
-    title: Three Thing
+  - url: '#'
+    name: One Thing Cool
+  - url: '#'
+    name: Two Thing
+  - url: '#'
+    name: Three Thing
 ---
-
