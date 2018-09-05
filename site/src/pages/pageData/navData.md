@@ -2,7 +2,7 @@
 title: NavItems
 navItems:
   - name: Home
-    url: '#'
+    url: /
   - name: Solutions
     url: /solutions
   - name: Technology
