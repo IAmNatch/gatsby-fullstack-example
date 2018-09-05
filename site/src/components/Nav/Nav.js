@@ -46,7 +46,7 @@ const NavList = styled.ul`
 `;
 const NavItem = styled.li`
   padding: 10px;
-  color: white;
+  color: ${props => props.color || 'white'};
   font-size: 1rem;
   font-weight: 100;
   transition: border 0.5s ease;
@@ -57,7 +57,7 @@ const NavItem = styled.li`
 `;
 
 const NavLink = styled(Link)`
-  color: white;
+  color: ${props => props.color || 'white'};
   text-decoration: none;
 `;
 
@@ -69,16 +69,16 @@ const Logo = styled.img`
 const LogoText = styled(Text)`
   font-size: 1.5em;
   font-weight: bolder;
+  color: ${props => props.color || 'white'};
 `;
 
 export const Nav = props => {
   const { items, actionButton, wrap } = props;
-
   return (
     <NavBase row={`1 / 2`} column={`2 / 4`}>
       <NavLeft>
         <Logo src={logo} />
-        <LogoText color={colors.white} size="medium">
+        <LogoText color={props.color} size="medium">
           {props.title}
         </LogoText>
       </NavLeft>
@@ -86,16 +86,19 @@ export const Nav = props => {
         <NavList wrap={wrap}>
           {items.map((item, index) => {
             return (
-              <NavItem key={`navItem${index}`}>
-                <NavLink activeStyle={{ fontWeight: '500' }} to={item.url}>
+              <NavItem color={props.color} key={`navItem${index}`}>
+                <NavLink
+                  color={props.color}
+                  activeStyle={{ fontWeight: '500' }}
+                  to={item.url}
+                >
                   {item.name}
                 </NavLink>
               </NavItem>
             );
           })}
           <NavLink to={actionButton.url}>
-            <Button content={actionButton.name} small margin={'0 0 0 .5rem'}>
-            </Button>
+            <Button content={actionButton.name} small margin={'0 0 0 .5rem'} />
           </NavLink>
         </NavList>
       </NavRight>

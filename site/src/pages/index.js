@@ -73,24 +73,11 @@ const ListItem = props => (
 );
 
 // Setting Up Cards
-let cards = seedCards.map((item, index) => {
-  return (
-    <Card key={`mainCards${index}`} icon={item.icon} shadow>
-      <LazyLoad offset={200} height={200} once>
-        <Card.Icon src={item.icon} />
-      </LazyLoad>
-      <Card.Title>{item.title}</Card.Title>
-      <Card.Subtitle>{item.subtitle}</Card.Subtitle>
-    </Card>
-  );
-});
-let rowOne = cards.slice(0, 3);
-let rowTwo = cards.slice(3, 5);
 
 const IndexPage = ({ data }) => {
   let { nav, pageData, site } = data;
   let { siteMetadata } = site;
-  let navItems = nav.frontmatter.nav_items;
+  let navItems = nav.frontmatter.navItems;
   let {
     title,
     jumbotron,
@@ -100,6 +87,20 @@ const IndexPage = ({ data }) => {
     footer,
   } = pageData.frontmatter;
   console.log(data);
+
+  let cards = services.cards.map((item, index) => {
+    return (
+      <Card key={`mainCards${index}`} icon={item.icon} shadow>
+        <LazyLoad offset={200} height={200} once>
+          <Card.Icon src={`/${item.icon.split('/static/')[1]}`} />
+        </LazyLoad>
+        <Card.Title>{item.cardTitle}</Card.Title>
+        <Card.Subtitle>{item.cardSubtitle}</Card.Subtitle>
+      </Card>
+    );
+  });
+  let rowOne = cards.slice(0, 3);
+  let rowTwo = cards.slice(3, 5);
 
   return (
     <div>
@@ -115,25 +116,21 @@ const IndexPage = ({ data }) => {
         />
         <Nav
           title={siteMetadata.title}
-          items={[
-            { name: 'Home', url: '/' },
-            { name: 'Solutions', url: '/anything' },
-            { name: 'Technology', url: '/else' },
-            { name: 'Contact', url: '/butHere' },
-          ]}
+          items={navItems}
           actionButton={{ name: 'Email Now', url: '#' }}
         />
 
         <Section row={'jumbo'} column={'2/4'}>
           <Box margin={'15% 0'} mobileMargin={'15% 0 30% 0'}>
             <Text margin={'0 0 1rem 0'} color={'white'} size="large">
-              Focus on Smart Care
+              {jumbotron.jumboHeader}
             </Text>
             <Text size="small" color="white" block>
-              Specialized in cool healthcare.
+              {jumbotron.jumboSubheader}
             </Text>
             <Button
-              content={'Watch the Video'}
+              width={'16rem'}
+              content={jumbotron.videoCta}
               margin={'10% 0 0 0'}
               icon={icon}
             />
@@ -159,10 +156,13 @@ const IndexPage = ({ data }) => {
             justify={'center'}
           >
             <LazyLoad once offset={100} height={100}>
-              <Icon src={'assets/brush.svg'} width={'3rem'} />
+              <Icon
+                src={`/${values.icon.split('/static/')[1]}`}
+                width={'3rem'}
+              />
             </LazyLoad>
             <Text color={colors.purpleDark} margin={'1rem'} size="small" block>
-              Core Value
+              {values.valueTitle}
             </Text>
             <Line color={colors.purpleDark} margin={'.5rem 0'} />
           </Box>
@@ -191,13 +191,7 @@ const IndexPage = ({ data }) => {
                 margin={'3rem 0 0 0'}
                 mobileMargin={'2rem 0 0 0'}
                 color={colors.purpleDark}
-                content={[
-                  'Hello this is cool',
-                  'Coolness part two',
-                  'Another one, the second coming',
-                  'Cool girls fast rides',
-                  'One more to make it right',
-                ]}
+                content={values.valuesList.map(item => item.value)}
               />
             </Box>
           </Box>
@@ -212,7 +206,10 @@ const IndexPage = ({ data }) => {
             justify={'center'}
           >
             <LazyLoad offset={100} height={100} once>
-              <Icon src={'assets/ruler.svg'} width={'3rem'} />
+              <Icon
+                src={`/${offers.icon.split('/static/')[1]}`}
+                width={'3rem'}
+              />
             </LazyLoad>
             <Text
               color={colors.purpleDark}
@@ -221,13 +218,21 @@ const IndexPage = ({ data }) => {
               size="small"
               block
             >
-              Smart Useful Things
+              {offers.title}
             </Text>
             <Box flex flexwrap justify={'center'} margin={'4rem 0 0rem'}>
               {/* Map over offers */}
-              {seedOffers.map((item, index) => (
-                <Offer key={`mainOffers${index}`} {...item} />
-              ))}
+              {offers.cards.map((item, index) => {
+                console.log(item);
+                return (
+                  <Offer
+                    key={`mainOffers${index}`}
+                    title={item.cardTitle}
+                    subtitle={item.cardSubtitle}
+                    icon={`/${item.icon.split('/assets/')[1]}`}
+                  />
+                );
+              })}
             </Box>
           </Box>
           <Icon />
@@ -244,7 +249,7 @@ const IndexPage = ({ data }) => {
           >
             <Box margin={'0'}>
               <Text size="small" color={colors.white} block>
-                Contact Us
+                {footer.title}
               </Text>
               <Text
                 TAlign={'right'}
@@ -253,7 +258,7 @@ const IndexPage = ({ data }) => {
                 size="p"
                 block
               >
-                Or else
+                {footer.subtitle}
               </Text>
             </Box>
             <Box>
@@ -263,7 +268,7 @@ const IndexPage = ({ data }) => {
                 size="p"
                 block
               >
-                416.953.7702
+                {footer.contact}
               </Text>
             </Box>
           </Box>
@@ -288,7 +293,7 @@ export const query = graphql`
     nav: markdownRemark(frontmatter: { title: { eq: "NavItems" } }) {
       id
       frontmatter {
-        nav_items {
+        navItems {
           name
           url
         }
@@ -309,17 +314,21 @@ export const query = graphql`
           cards {
             cardSubtitle
             cardTitle
+            icon
           }
         }
         values {
+          icon
           valueTitle
           valuesList {
             value
           }
         }
         offers {
+          icon
           title
           cards {
+            icon
             cardTitle
             cardSubtitle
           }
