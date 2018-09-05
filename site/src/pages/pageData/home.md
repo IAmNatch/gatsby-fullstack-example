@@ -1,8 +1,8 @@
 ---
 title: Home Page
 jumbotron:
-  jumbo-header: Test 123
-  jumbo-subheader: Test 345
+  jumbo-header: Something worth changing
+  jumbo-subheader: Another Thing
   video-cta: 'Click me pls! '
   video-url: Another URL
 services:
