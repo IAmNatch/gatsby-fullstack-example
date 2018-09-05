@@ -2,7 +2,7 @@
 title: NavItems
 nav-items:
   - path: '#'
-    title: One Thing
+    title: One Thing Cool
   - path: '#'
     title: Two Thing
   - path: '#'
