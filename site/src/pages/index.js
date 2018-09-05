@@ -86,7 +86,6 @@ const IndexPage = ({ data }) => {
     values,
     footer,
   } = pageData.frontmatter;
-  console.log(data);
 
   let cards = services.cards.map((item, index) => {
     return (
