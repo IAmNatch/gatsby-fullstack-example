@@ -94,8 +94,7 @@ export const Nav = props => {
             );
           })}
           <NavLink to={actionButton.url}>
-            <Button small margin={'0 0 0 .5rem'}>
-              {actionButton.name}
+            <Button content={actionButton.name} small margin={'0 0 0 .5rem'}>
             </Button>
           </NavLink>
         </NavList>

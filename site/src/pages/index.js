@@ -76,7 +76,7 @@ const ListItem = props => (
 let cards = seedCards.map((item, index) => {
   return (
     <Card key={`mainCards${index}`} icon={item.icon} shadow>
-      <LazyLoad height={200} once>
+      <LazyLoad offset={200} height={200} once>
         <Card.Icon src={item.icon} />
       </LazyLoad>
       <Card.Title>{item.title}</Card.Title>
@@ -87,180 +87,243 @@ let cards = seedCards.map((item, index) => {
 let rowOne = cards.slice(0, 3);
 let rowTwo = cards.slice(3, 5);
 
-const IndexPage = ({ data }) => (
-  <div>
-    <Wrapper
-      columns={`10vw 40vw 40vw 10vw`}
-      rows={`[nav] auto [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
-    >
-      <Background
-        column={`1/5`}
-        row={'1/3'}
-        size={'cover'}
-        background={`url(/background.svg)`}
-      />
-      <Nav
-        title={data.site.siteMetadata.title}
-        items={[
-          { name: 'Home', url: '/' },
-          { name: 'Solutions', url: '/anything' },
-          { name: 'Technology', url: '/else' },
-          { name: 'Contact', url: '/butHere' },
-        ]}
-        actionButton={{ name: 'Email Now', url: '#' }}
-      />
+const IndexPage = ({ data }) => {
+  let { nav, pageData, site } = data;
+  let { siteMetadata } = site;
+  let navItems = nav.frontmatter.nav_items;
+  let {
+    title,
+    jumbotron,
+    offers,
+    services,
+    values,
+    footer,
+  } = pageData.frontmatter;
+  console.log(data);
+  return (
+    <div>
+      <Wrapper
+        columns={`10vw 40vw 40vw 10vw`}
+        rows={`[nav] auto [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
+      >
+        <Background
+          column={`1/5`}
+          row={'1/3'}
+          size={'cover'}
+          background={`url(/background.svg)`}
+        />
+        <Nav
+          title={siteMetadata.title}
+          items={[
+            { name: 'Home', url: '/' },
+            { name: 'Solutions', url: '/anything' },
+            { name: 'Technology', url: '/else' },
+            { name: 'Contact', url: '/butHere' },
+          ]}
+          actionButton={{ name: 'Email Now', url: '#' }}
+        />
 
-      <Section row={'jumbo'} column={'2/4'}>
-        <Box margin={'15% 0'} mobileMargin={'15% 0 30% 0'}>
-          <Text margin={'0 0 1rem 0'} color={'white'} size="large">
-            Focus on Smart Care
-          </Text>
-          <Text size="small" color="white" block>
-            Specialized in cool healthcare.
-          </Text>
-          <Button margin={'10% 0 0 0'} icon={icon}>
-            Watch the Video
-          </Button>
-        </Box>
-      </Section>
-      <Background row={'services'} column={'1/5'} background={'#FCF9FE'} />
-      <Section row={'services'} column={'2/4'}>
-        <Box margin={'-3rem 0 3rem'} mobileMargin={'-4rem 0 3rem'}>
-          <Box wrap flex>
-            {rowOne}
+        <Section row={'jumbo'} column={'2/4'}>
+          <Box margin={'15% 0'} mobileMargin={'15% 0 30% 0'}>
+            <Text margin={'0 0 1rem 0'} color={'white'} size="large">
+              Focus on Smart Care
+            </Text>
+            <Text size="small" color="white" block>
+              Specialized in cool healthcare.
+            </Text>
+            <Button content={'Watch the Video'} margin={'10% 0 0 0'} icon={icon} />
           </Box>
-          <Box wrap flex>
-            {rowTwo}
-          </Box>
-        </Box>
-      </Section>
-      <Section row={'values'} column={'2/4'}>
-        <Box
-          flex
-          direction={'column'}
-          margin={'5rem 0 1rem'}
-          align={'center'}
-          justify={'center'}
-        >
-          <LazyLoad once height={100}>
-            <Icon src={'assets/brush.svg'} width={'3rem'} />
-          </LazyLoad>
-          <Text color={colors.purpleDark} margin={'1rem'} size="small" block>
-            Core Value
-          </Text>
-          <Line color={colors.purpleDark} margin={'.5rem 0'} />
-        </Box>
-        <Box
-          flex
-          justify={'center'}
-          mobileDirection={'column'}
-          mobileTAlign={'center'}
-        >
-          <Box flex justify={'center'} width="60%" mobileWidth={'100%'}>
-            <Box flex align={'flex-end'} margin={'0 0 1rem 0'}>
-              <LazyLoad height={500} once>
-                <Icon width={'100%'} src="/assets/vectors/laptop.svg" />
-              </LazyLoad>
+        </Section>
+        <Background row={'services'} column={'1/5'} background={'#FCF9FE'} />
+        <Section row={'services'} column={'2/4'}>
+          <Box margin={'-3rem 0 3rem'} mobileMargin={'-4rem 0 3rem'}>
+            <Box flexwrap flex>
+              {rowOne}
             </Box>
+            <Box flexwrap flex>
+              {rowTwo}
+            </Box>
+          </Box>
+        </Section>
+        <Section row={'values'} column={'2/4'}>
+          <Box
+            flex
+            direction={'column'}
+            margin={'5rem 0 1rem'}
+            align={'center'}
+            justify={'center'}
+          >
+            <LazyLoad once offset={100} height={100}>
+              <Icon src={'assets/brush.svg'} width={'3rem'} />
+            </LazyLoad>
+            <Text color={colors.purpleDark} margin={'1rem'} size="small" block>
+              Core Value
+            </Text>
+            <Line color={colors.purpleDark} margin={'.5rem 0'} />
           </Box>
           <Box
             flex
+            justify={'center'}
+            mobileDirection={'column'}
+            mobileTAlign={'center'}
+          >
+            <Box flex justify={'center'} width="60%" mobileWidth={'100%'}>
+              <Box flex align={'flex-end'} margin={'0 0 1rem 0'}>
+                <LazyLoad offset={100} height={500} once>
+                  <Icon width={'100%'} src="/assets/vectors/laptop.svg" />
+                </LazyLoad>
+              </Box>
+            </Box>
+            <Box
+              flex
+              align={'center'}
+              justify={'center'}
+              mobileWidth={'100%'}
+              mobileTAlign={'center'}
+              width="40%"
+            >
+              <List
+                margin={'3rem 0 0 0'}
+                mobileMargin={'2rem 0 0 0'}
+                color={colors.purpleDark}
+                content={[
+                  'Hello this is cool',
+                  'Coolness part two',
+                  'Another one, the second coming',
+                  'Cool girls fast rides',
+                  'One more to make it right',
+                ]}
+              />
+            </Box>
+          </Box>
+        </Section>
+        <Background row={'offers'} column={'1/5'} background={'#FCF9FE'} />
+        <Section row={'offers'} column={'2/4'}>
+          <Box
+            flex
+            direction={'column'}
+            margin={'3em 0 2rem'}
             align={'center'}
             justify={'center'}
-            mobileWidth={'100%'}
-            mobileTAlign={'center'}
-            width="40%"
           >
-            <List
-              margin={'3rem 0 0 0'}
-              mobileMargin={'2rem 0 0 0'}
-              color={colors.purpleDark}
-              content={[
-                'Hello this is cool',
-                'Coolness part two',
-                'Another one, the second coming',
-                'Cool girls fast rides',
-                'One more to make it right',
-              ]}
-            />
-          </Box>
-        </Box>
-      </Section>
-      <Background row={'offers'} column={'1/5'} background={'#FCF9FE'} />
-      <Section row={'offers'} column={'2/4'}>
-        <Box
-          flex
-          direction={'column'}
-          margin={'3em 0 2rem'}
-          align={'center'}
-          justify={'center'}
-        >
-          <LazyLoad height={100} once>
-            <Icon src={'assets/ruler.svg'} width={'3rem'} />
-          </LazyLoad>
-          <Text
-            color={colors.purpleDark}
-            margin={'1rem'}
-            TAlign={'center'}
-            size="small"
-            block
-          >
-            Smart Useful Things
-          </Text>
-          <Box flex wrap justify={'center'} margin={'4rem 0 0rem'}>
-            {/* Map over offers */}
-            {seedOffers.map((item, index) => (
-              <Offer key={`mainOffers${index}`} {...item} />
-            ))}
-          </Box>
-        </Box>
-        <Icon />
-      </Section>
-      <Background row="contact" column={'1/5'} background="#7C21FF" />
-      <Section row="contact" column="1/5">
-        <Box
-          flex
-          margin={'1rem'}
-          justify={'space-between'}
-          mobileDirection={'column'}
-          mobileTAlign={'center'}
-          align="center"
-        >
-          <Box margin={'0'}>
-            <Text size="small" color={colors.white} block>
-              Contact Us
-            </Text>
+            <LazyLoad offset={100} height={100} once>
+              <Icon src={'assets/ruler.svg'} width={'3rem'} />
+            </LazyLoad>
             <Text
-              TAlign={'right'}
-              letterSpaceing={'.6rem'}
-              color={colors.white}
-              size="p"
+              color={colors.purpleDark}
+              margin={'1rem'}
+              TAlign={'center'}
+              size="small"
               block
             >
-              Or else
+              Smart Useful Things
             </Text>
+            <Box flex flexwrap justify={'center'} margin={'4rem 0 0rem'}>
+              {/* Map over offers */}
+              {seedOffers.map((item, index) => (
+                <Offer key={`mainOffers${index}`} {...item} />
+              ))}
+            </Box>
           </Box>
-          <Box>
-            <Text letterSpaceing={'.6rem'} color={colors.white} size="p" block>
-              416.953.7702
-            </Text>
+          <Icon />
+        </Section>
+        <Background row="contact" column={'1/5'} background="#7C21FF" />
+        <Section row="contact" column="1/5">
+          <Box
+            flex
+            margin={'1rem'}
+            justify={'space-between'}
+            mobileDirection={'column'}
+            mobileTAlign={'center'}
+            align="center"
+          >
+            <Box margin={'0'}>
+              <Text size="small" color={colors.white} block>
+                Contact Us
+              </Text>
+              <Text
+                TAlign={'right'}
+                letterSpaceing={'.6rem'}
+                color={colors.white}
+                size="p"
+                block
+              >
+                Or else
+              </Text>
+            </Box>
+            <Box>
+              <Text
+                letterSpaceing={'.6rem'}
+                color={colors.white}
+                size="p"
+                block
+              >
+                416.953.7702
+              </Text>
+            </Box>
           </Box>
-        </Box>
-      </Section>
-      <Section column={'1/5'} row="footer">
-        {/* Make footer component and be done!!*/}
-      </Section>
-    </Wrapper>
-  </div>
-);
+        </Section>
+        <Section column={'1/5'} row="footer">
+          {/* Make footer component and be done!!*/}
+        </Section>
+      </Wrapper>
+    </div>
+  );
+};
 
 export default IndexPage;
 
 export const query = graphql`
-  query TitleQuery {
+  query homePageQuery {
     site {
       siteMetadata {
         title
+      }
+    }
+    nav: markdownRemark(frontmatter: { title: { eq: "NavItems" } }) {
+      id
+      frontmatter {
+        nav_items {
+          title
+          path
+        }
+      }
+    }
+    pageData: markdownRemark(frontmatter: { title: { eq: "Home Page" } }) {
+      id
+      frontmatter {
+        title
+        jumbotron {
+          jumbo_header
+          jumbo_subheader
+          video_cta
+          video_url
+        }
+        services {
+          title
+          cards {
+            card_subtitle
+            card_title
+          }
+        }
+        values {
+          values_title
+          values_list {
+            value
+          }
+        }
+        offers {
+          title
+          cards {
+            card_title
+            card_subtitle
+          }
+        }
+        footer {
+          title
+          subtitle
+          contact
+        }
       }
     }
   }

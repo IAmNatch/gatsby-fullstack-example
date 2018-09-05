@@ -15,6 +15,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages/pageData`,
+        name: 'markdown-pages',
+      },
+    },
+    `gatsby-transformer-remark`,
+    {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         // Setting a color is optional.

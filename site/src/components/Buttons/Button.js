@@ -37,9 +37,9 @@ export const Button = props => {
   return (
     <ButtonBase onclick="" {...props}>
       <Text color="white" size={props.small ? 'p' : 'small'}>
-        {props.children}
+        {props.content}
       </Text>
-      {props.icon ? [<Icon src={props.icon} />] : ' '}
+      {props.icon ? <Icon src={props.icon} /> : ' '}
     </ButtonBase>
   );
 };

@@ -16,11 +16,11 @@ collections:
                 name: 'jumbotron'
                 widget: 'object'
                 fields:
-                - {label: "Jumbo Header", name: "jumbo-header", widget: "string"}
-                - {label: "Jumbo Subheader", name: "jumbo-subheader", widget: "string"}
-                - {label: "Video URL", name: "video-url", widget: "string"}
-                - {label: "Video CTA", name: "video-cta", widget: "string"}
-                - {label: "Icon", name: 'video-cta-icon', widget: 'icon'}
+                - {label: "Jumbo Header", name: "jumboHeader", widget: "string"}
+                - {label: "Jumbo Subheader", name: "jumboSubheader", widget: "string"}
+                - {label: "Video URL", name: "videoUrl", widget: "string"}
+                - {label: "Video CTA", name: "videoCta", widget: "string"}
+                - {label: "Icon", name: 'videoCTAIcon', widget: 'image'}
               - label: Services
                 name: services
                 widget: 'object'
@@ -31,14 +31,14 @@ collections:
                     name: cards
                     widget: 'list'
                     fields:
-                      - {label: "Card Title", name: "card-title", widget: 'string'}
-                      - {label: "Card Subtitle", name: "card-subtitle", widget: 'string'}
+                      - {label: "Card Title", name: "cardTitle", widget: 'string'}
+                      - {label: "Card Subtitle", name: "cardSubtitle", widget: 'string'}
                       - {label: "Icon", name: "icon", widget: 'image'}
               - label: Values
                 name: values
                 widget: 'object'
                 fields:
-                  - {label: "Title", name: "values-title", widget: 'string'}
+                  - {label: "Title", name: "valueTitle", widget: 'string'}
                   - {label: "Icon", name: "icon", widget: 'image'}
                   -  label: Values List
                      name: values-list
@@ -55,8 +55,8 @@ collections:
                     name: cards
                     widget: 'list'
                     fields:
-                      - {label: "Card Title", name: "card-title", widget: 'string'}
-                      - {label: "Card Subtitle", name: "card-subtitle", widget: 'string'}
+                      - {label: "Card Title", name: "cardTitle", widget: 'string'}
+                      - {label: "Card Subtitle", name: "cardSubtitle", widget: 'string'}
                       - {label: "Icon", name: "icon", widget: 'image'}
               - label: "Footer"
                 name: 'footer'
@@ -71,7 +71,7 @@ collections:
           fields:
             - {label: "Title", name: 'title', widget: 'string'}
             - label: Nav Items
-              name: nav-items
+              name: navItems
               widget: "list"
               fields:
                 - {label: Title, name: title, widget: string}

@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 export const Box = styled.div`
   color: ${props => props.color || 'black'};
@@ -8,7 +8,7 @@ export const Box = styled.div`
   width: ${props => props.width || 'auto'};
   height: ${props => props.height || 'auto'};
   ${props => (props.flex ? 'display: flex' : '')};
-  ${props => (props.wrap ? 'flex-wrap: wrap' : '')};
+  ${props => (props.flexwrap ? 'flex-wrap: wrap' : '')};
   ${props => (props.direction ? `flex-direction: ${props.direction}` : '')};
   background: ${props => (props.background ? props.background : '')};
   justify-content: ${props => (props.justify ? props.justify : '')};
@@ -25,4 +25,4 @@ export const Box = styled.div`
     ${props => (props.mobileWidth ? `width: ${props.mobileWidth}` : '')};
     ${props => (props.mobileTAlign ? `text-align: ${props.mobileTAlign}` : '')};
   }
-`
+`;
