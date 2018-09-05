@@ -1,10 +1,13 @@
 ---
 title: NavItems
-nav-items:
-  - url: '#'
-    name: One Thing Cool
-  - url: '#'
-    name: Two Thing
-  - url: '#'
-    name: Three Thing
+navItems:
+  - name: Home
+    url: '#'
+  - name: Solutions
+    url: /solutions
+  - name: Technology
+    url: /technology
+  - name: Contact
+    url: /contact
 ---
+
