@@ -4,10 +4,10 @@ navItems:
   - name: Home
     url: /
   - name: Solutions
-    url: /solutions
+    url: /coming-soon
   - name: Technology
-    url: /technology
+    url: /coming-soon
   - name: Contact
-    url: /contact
+    url: /coming-soon
 ---
 
