@@ -131,7 +131,11 @@ const IndexPage = ({ data }) => {
             <Text size="small" color="white" block>
               Specialized in cool healthcare.
             </Text>
-            <Button content={'Watch the Video'} margin={'10% 0 0 0'} icon={icon} />
+            <Button
+              content={'Watch the Video'}
+              margin={'10% 0 0 0'}
+              icon={icon}
+            />
           </Box>
         </Section>
         <Background row={'services'} column={'1/5'} background={'#FCF9FE'} />
@@ -294,29 +298,29 @@ export const query = graphql`
       frontmatter {
         title
         jumbotron {
-          jumbo_header
-          jumbo_subheader
-          video_cta
-          video_url
+          jumboHeader
+          jumboSubheader
+          videoCta
+          videoUrl
         }
         services {
           title
           cards {
-            card_subtitle
-            card_title
+            cardSubtitle
+            cardTitle
           }
         }
         values {
-          values_title
-          values_list {
+          valueTitle
+          valuesList {
             value
           }
         }
         offers {
           title
           cards {
-            card_title
-            card_subtitle
+            cardTitle
+            cardSubtitle
           }
         }
         footer {

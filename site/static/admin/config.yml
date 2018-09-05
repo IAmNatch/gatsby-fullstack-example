@@ -41,7 +41,7 @@ collections:
                   - {label: "Title", name: "valueTitle", widget: 'string'}
                   - {label: "Icon", name: "icon", widget: 'image'}
                   -  label: Values List
-                     name: values-list
+                     name: valuesList
                      widget: 'list'
                      fields:
                          - {label: "Value", name: "value", widget: 'string'}

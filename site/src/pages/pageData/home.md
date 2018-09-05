@@ -27,7 +27,7 @@ services:
 values:
   icon: /site/static/assets/brush.svg
   valueTitle: Core Values
-  values-list:
+  valuesList:
     - value: 'Make big noise all the time. '
     - value: 'Be transparent as all hell. '
     - value: Never stop never stopping. Really though.
@@ -54,4 +54,3 @@ footer:
   subtitle: Or else
   title: Contact Us
 ---
-
