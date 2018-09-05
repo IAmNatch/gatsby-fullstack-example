@@ -31,16 +31,17 @@ const NotFoundPage = ({ data }, props) => {
           flex
           justify={'center'}
           direction={'column'}
-          margin={'15% 0 30%'}
+          margin={'15% 0 10%'}
           mobileMargin={'15% 0 110% 0'}
         >
           <Text color={'white'} size="large">
             RUH ROH!
           </Text>
           <Text size="small" color="white" block>
-            You don't have to go home, but you can't stay here.
+            We haven't built this page yet. You don't have to go home, but you
+            can't stay here.
           </Text>
-          <Button to={'/'} content={'hi boo'} margin={'10% 0 0 0'} />
+          <Button to={'/'} content={'Make Like a Tree'} margin={'10% 30%'} />
         </Box>
       </Section>
     </Wrapper>
