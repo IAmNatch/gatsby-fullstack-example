@@ -17,7 +17,7 @@ services:
     - cardSubtitle: 'The nicest service we''ve got. '
       cardTitle: Care Plan
       icon: /site/static/assets/tablet.svg
-    - cardSubtitle: The artiest are on the planet
+    - cardSubtitle: The artiest art on the planet
       cardTitle: Art Work
       icon: /site/static/assets/headphones.svg
     - cardSubtitle: We have such nice mice
@@ -54,3 +54,4 @@ footer:
   subtitle: Or else
   title: Contact Us
 ---
+
