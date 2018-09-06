@@ -68,7 +68,7 @@ const Logo = styled.img`
 
 const LogoText = styled(Text)`
   font-size: 1.5em;
-  font-weight: bolder;
+  font-weight: 300;
   color: ${props => props.color || 'white'};
 `;
 

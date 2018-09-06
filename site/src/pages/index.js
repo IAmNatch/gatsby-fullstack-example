@@ -105,7 +105,7 @@ const IndexPage = ({ data }) => {
     <div>
       <Wrapper
         columns={`10vw 40vw 40vw 10vw`}
-        rows={`[nav] auto [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
+        rows={`[nav] 10vh [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
       >
         <Background
           column={`1/5`}
@@ -132,6 +132,7 @@ const IndexPage = ({ data }) => {
               content={jumbotron.videoCta}
               margin={'10% 0 0 0'}
               icon={icon}
+              onClick={() => alert("|//? You've been tricked! ?\\\\|")}
             />
           </Box>
         </Section>
@@ -219,7 +220,7 @@ const IndexPage = ({ data }) => {
             >
               {offers.title}
             </Text>
-            <Box flex flexwrap justify={'center'} margin={'4rem 0 0rem'}>
+            <Box flex flexwrap justify={'space-around'} margin={'4rem 0 0rem'}>
               {/* Map over offers */}
               {offers.cards.map((item, index) => {
                 console.log(item);

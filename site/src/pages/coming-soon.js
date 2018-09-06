@@ -13,9 +13,11 @@ import {
 const NotFoundPage = ({ data }, props) => {
   console.log(data);
   return (
-    <Wrapper columns={`10vw 40vw 40vw 10vw`} rows={`[nav] auto [jumbo] auto`}>
+    <Wrapper columns={`10vw 40vw 40vw 10vw`} rows={`[nav] 10vh [jumbo] auto`}>
       <Background
         column={`1/5`}
+        height={'100vh'}
+        width={'100vw'}
         row={'1/3'}
         size={'cover'}
         background={`url(/background.svg)`}
