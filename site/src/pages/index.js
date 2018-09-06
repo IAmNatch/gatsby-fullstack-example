@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 import LazyLoad from 'react-lazyload';
+import Helmet from 'react-helmet';
 
 // Components
 import {
@@ -103,6 +104,9 @@ const IndexPage = ({ data }) => {
 
   return (
     <div>
+        <Helmet
+          title={`${data.site.siteMetadata.title} | Home`}
+      / >
       <Wrapper
         columns={`10vw 40vw 40vw 10vw`}
         rows={`[nav] 10vh [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}

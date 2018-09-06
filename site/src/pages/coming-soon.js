@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import {
   Nav,
   Wrapper,
@@ -11,8 +12,14 @@ import {
 } from '../components';
 
 const NotFoundPage = ({ data }, props) => {
-  console.log(data);
   return (
+      [<Helmet
+        title={`${data.site.siteMetadata.title} | Coming Soon`}
+        meta={[
+          { name: 'description', content: 'Sample' },
+          { name: 'keywords', content: 'sample, something' },
+        ]}
+    />,
     <Wrapper columns={`10vw 40vw 40vw 10vw`} rows={`[nav] 10vh [jumbo] auto`}>
       <Background
         column={`1/5`}
@@ -46,7 +53,7 @@ const NotFoundPage = ({ data }, props) => {
           <Button to={'/'} content={'Make Like a Tree'} margin={'10% 30%'} />
         </Box>
       </Section>
-    </Wrapper>
+  </Wrapper>]
   );
 };
 
