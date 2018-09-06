@@ -12,15 +12,19 @@ import {
 } from '../components';
 
 const NotFoundPage = ({ data }, props) => {
-  return (
-      [<Helmet
-        title={`${data.site.siteMetadata.title} | Coming Soon`}
-        meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
-        ]}
+  return [
+    <Helmet
+      title={`${data.site.siteMetadata.title} | Coming Soon`}
+      meta={[
+        { name: 'description', content: 'Sample' },
+        { name: 'keywords', content: 'sample, something' },
+      ]}
     />,
-    <Wrapper columns={`10vw 40vw 40vw 10vw`} rows={`[nav] 10vh [jumbo] auto`}>
+    <Wrapper
+      columns={`10vw 40vw 40vw 10vw`}
+      rows={`[nav] 10vh [jumbo] auto`}
+      mobileRows={`[nav] 20vh [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
+    >
       <Background
         column={`1/5`}
         height={'100vh'}
@@ -50,11 +54,16 @@ const NotFoundPage = ({ data }, props) => {
             We haven't built this page yet. You don't have to go home, but you
             can't stay here.
           </Text>
-          <Button to={'/'} content={'Make Like a Tree'} margin={'10% 30%'} />
+          <Button
+            to={'/'}
+            content={'Make Like a Tree'}
+            mobileMargin={'10%'}
+            margin={'10% 30%'}
+          />
         </Box>
       </Section>
-  </Wrapper>]
-  );
+    </Wrapper>,
+  ];
 };
 
 export default NotFoundPage;
