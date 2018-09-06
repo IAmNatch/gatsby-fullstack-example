@@ -7,6 +7,10 @@ const WrapperBase = styled.div`
   grid-template-columns: ${props => (props.columns ? props.columns : '')};
   background: ${props => (props.background ? props.background : '')};
   ${props => (props.minHeight ? `min-height: ${props.minHeight}` : '')};
+
+  @media only screen and (max-width: 768px) {
+    ${props => (props.mobileRows ? `width: ${props.mobileRows}` : '')};
+  }
 `;
 
 export const Wrapper = props => {

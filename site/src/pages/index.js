@@ -113,6 +113,7 @@ const IndexPage = ({ data }) => {
       <Wrapper
         columns={`10vw 40vw 40vw 10vw`}
         rows={`[nav] 10vh [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
+        mobileRows={`[nav] 15vh [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
       >
         <Background
           column={`1/5`}
