@@ -113,7 +113,7 @@ const IndexPage = ({ data }) => {
       <Wrapper
         columns={`10vw 40vw 40vw 10vw`}
         rows={`[nav] 10vh [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
-        mobileRows={`[nav] 15vh [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
+        mobileRows={`[nav] 20vh [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
       >
         <Background
           column={`1/5`}
@@ -122,6 +122,7 @@ const IndexPage = ({ data }) => {
           background={`url(/background.svg)`}
         />
         <Nav
+          row={'nav'}
           title={siteMetadata.title}
           items={navItems}
           actionButton={{ name: 'Email Now', url: '#' }}

@@ -9,7 +9,8 @@ const WrapperBase = styled.div`
   ${props => (props.minHeight ? `min-height: ${props.minHeight}` : '')};
 
   @media only screen and (max-width: 768px) {
-    ${props => (props.mobileRows ? `width: ${props.mobileRows}` : '')};
+    ${props =>
+      props.mobileRows ? `grid-template-rows: ${props.mobileRows}` : ''};
   }
 `;
 
