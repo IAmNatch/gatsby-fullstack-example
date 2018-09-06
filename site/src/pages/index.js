@@ -3,6 +3,11 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 import LazyLoad from 'react-lazyload';
 import Helmet from 'react-helmet';
+import {
+  SlideInLeft,
+  SlideInDown,
+  FadeIn,
+} from 'animate-css-styled-components';
 
 // Components
 import {
@@ -104,9 +109,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <div>
-        <Helmet
-          title={`${data.site.siteMetadata.title} | Home`}
-      / >
+      <Helmet title={`${data.site.siteMetadata.title} | Home`} />
       <Wrapper
         columns={`10vw 40vw 40vw 10vw`}
         rows={`[nav] 10vh [jumbo] auto [services] auto [values] auto [offers] auto [contact] auto [footer] auto`}
@@ -125,19 +128,23 @@ const IndexPage = ({ data }) => {
 
         <Section row={'jumbo'} column={'2/4'}>
           <Box margin={'15% 0'} mobileMargin={'15% 0 30% 0'}>
-            <Text margin={'0 0 1rem 0'} color={'white'} size="large">
-              {jumbotron.jumboHeader}
-            </Text>
-            <Text size="small" color="white" block>
-              {jumbotron.jumboSubheader}
-            </Text>
-            <Button
-              width={'16rem'}
-              content={jumbotron.videoCta}
-              margin={'10% 0 0 0'}
-              icon={icon}
-              onClick={() => alert("|//? You've been tricked! ?\\\\|")}
-            />
+            <FadeIn duration={'2s'}>
+              <SlideInLeft duration={'1s'} easingFunction={'easeInOut'}>
+                <Text margin={'0 0 1rem 0'} color={'white'} size="large">
+                  {jumbotron.jumboHeader}
+                </Text>
+                <Text size="small" color="white" block>
+                  {jumbotron.jumboSubheader}
+                </Text>
+                <Button
+                  width={'16rem'}
+                  content={jumbotron.videoCta}
+                  margin={'10% 0 0 0'}
+                  icon={icon}
+                  onClick={() => alert("|//? You've been tricked! ?\\\\|")}
+                />
+              </SlideInLeft>
+            </FadeIn>
           </Box>
         </Section>
         <Background row={'services'} column={'1/5'} background={'#FCF9FE'} />
