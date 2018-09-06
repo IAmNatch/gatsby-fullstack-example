@@ -11,6 +11,7 @@ export const Offer = props => (
     TAlign={'center'}
     flex
     mobileMargin={''}
+    maxWidth={'12rem'}
     direction={'column'}
     margin={'0rem 2rem 2rem'}
     mobileMargin={'2rem'}

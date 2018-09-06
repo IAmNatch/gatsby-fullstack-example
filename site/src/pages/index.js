@@ -21,66 +21,16 @@ import {
   Section,
   Line,
   Icon,
+  List,
+  Background,
 } from '../components';
 import { Offer } from '../components/ProjectSpec/Offers';
 import icon from '../components/assets/thumbs_up.svg';
 import { seedCards, seedOffers } from '../seed_data';
 
-const Background = styled.div`
-  background: ${props => props.background};
-  grid-row: ${props => (props.row ? props.row : '')};
-  grid-column: ${props => (props.column ? props.column : '')};
-  background-size: ${props => (props.size ? props.size : 'cover')};
-  z-index: 1;
-`;
-
-const List = props => {
-  if (props.ordered) {
-    return (
-      <ol>
-        {props.content.map((item, index) => (
-          <ListItem {...props} key={`listKey${index}`} content={item} />
-        ))}
-      </ol>
-    );
-  } else {
-    return (
-      <UnorderedList {...props}>
-        {props.content.map((item, index) => (
-          <ListItem {...props} key={`listKey${index}`} content={item} />
-        ))}
-      </UnorderedList>
-    );
-  }
-};
-
-const UnorderedList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: ${props => (props.margin ? props.margin : '')}};
-
-  @media only screen and (max-width: 768px) {
-    ${props => (props.mobileMargin ? `margin: ${props.mobileMargin}` : '')};
-  }
-`;
-const ListItemBase = styled.li`
-  ${props => (props.horizontal ? 'display: inline-block' : '')};
-`;
-const ListItem = props => (
-  <ListItemBase {...props}>
-    <Text
-      margin={'1.5rem'}
-      size="subtitle"
-      color={props.color || colors.purpleDark}
-    >
-      {props.content}
-    </Text>
-  </ListItemBase>
-);
-
-// Setting Up Cards
-
+// Page Start
 const IndexPage = ({ data }) => {
+  // Data Grooming
   let { nav, pageData, site } = data;
   let { siteMetadata } = site;
   let navItems = nav.frontmatter.navItems;
@@ -93,6 +43,7 @@ const IndexPage = ({ data }) => {
     footer,
   } = pageData.frontmatter;
 
+  // Setting Up Cards
   let cards = services.cards.map((item, index) => {
     return (
       <Card key={`mainCards${index}`} icon={item.icon} shadow>
@@ -107,8 +58,10 @@ const IndexPage = ({ data }) => {
   let rowOne = cards.slice(0, 3);
   let rowTwo = cards.slice(3, 5);
 
+  // JSX Start
   return (
     <div>
+      {/* Helmet sets page title*/}
       <Helmet title={`${data.site.siteMetadata.title} | Home`} />
       <Wrapper
         columns={`10vw 40vw 40vw 10vw`}
@@ -121,6 +74,7 @@ const IndexPage = ({ data }) => {
           size={'cover'}
           background={`url(/background.svg)`}
         />
+
         <Nav
           row={'nav'}
           title={siteMetadata.title}
@@ -152,10 +106,10 @@ const IndexPage = ({ data }) => {
         <Background row={'services'} column={'1/5'} background={'#FCF9FE'} />
         <Section row={'services'} column={'2/4'}>
           <Box margin={'-3rem 0 3rem'} mobileMargin={'-4rem 0 3rem'}>
-            <Box flexwrap flex>
+            <Box flexWrap flex>
               {rowOne}
             </Box>
-            <Box flexwrap flex>
+            <Box flexWrap flex>
               {rowTwo}
             </Box>
           </Box>
@@ -233,7 +187,7 @@ const IndexPage = ({ data }) => {
             >
               {offers.title}
             </Text>
-            <Box flex flexwrap justify={'space-around'} margin={'4rem 0 0rem'}>
+            <Box flex flexWrap justify={'space-around'} margin={'4rem 0 0rem'}>
               {/* Map over offers */}
               {offers.cards.map((item, index) => {
                 console.log(item);
@@ -296,6 +250,7 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage;
 
+// Page Query for GQL.
 export const query = graphql`
   query homePageQuery {
     site {

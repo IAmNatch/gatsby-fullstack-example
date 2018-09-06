@@ -37,7 +37,7 @@ const Icon = styled.img`
 
 export const Button = props => {
   return (
-    <ButtonBase onclick="" {...props}>
+    <ButtonBase onclick={props.onclick} {...props}>
       <Text color="white" size={props.small ? 'p' : 'small'}>
         {props.content}
       </Text>

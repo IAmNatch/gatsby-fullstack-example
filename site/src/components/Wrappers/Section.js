@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { DivProto } from '../Prototypes';
 
-const SectionBase = styled.section`
+const SectionBase = styled(DivProto)`
   grid-row: ${props => (props.row ? props.row : '')};
   grid-column: ${props => (props.column ? props.column : '')};
   z-index: 1;
@@ -16,5 +17,9 @@ const SectionBase = styled.section`
 `;
 
 export const Section = props => {
-  return <SectionBase {...props}>{props.children}</SectionBase>;
+  return (
+    <SectionBase as="section" {...props}>
+      {props.children}
+    </SectionBase>
+  );
 };
