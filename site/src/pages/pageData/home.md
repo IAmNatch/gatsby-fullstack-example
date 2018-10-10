@@ -1,7 +1,7 @@
 ---
 title: Home Page
 jumbotron:
-  jumboHeader: Focus on Smart Care
+  jumboHeader: Focus on Better Health
   jumboSubheader: Specialized in cool healthcare.
   videoCTAIcon: /site/static/assets/thumbs_up.svg
   videoCta: Watch the Video
